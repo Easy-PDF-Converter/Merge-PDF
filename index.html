@@ -2,13 +2,21 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Merge PDF — Combine PDF Files Online, Free &amp; Private</title>
-<meta name="description" content="Merge multiple PDF files into one perfectly ordered document, right in your browser. Free, no watermarks, no uploads, no sign-up.">
-<meta name="theme-color" content="#080912">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Merge PDF — Combine PDF Files Online, Free &amp; Private | Easy PDF Converter</title>
+<meta name="description" content="Merge multiple PDF files into one clean, ordered document right in your browser. Free, no watermarks, no uploads, no sign-up. Part of the Easy PDF Converter suite.">
+<meta name="theme-color" content="#070810">
+<meta name="color-scheme" content="dark light">
+<link rel="canonical" href="https://easy-pdf-converter.github.io/Merge-PDF/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Merge PDF — Free, Private, Browser-Based">
+<meta property="og:description" content="Combine PDFs in your browser. Files never leave your device.">
+<meta property="og:url" content="https://easy-pdf-converter.github.io/Merge-PDF/">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c6bff'/%3E%3Cpath d='M11 8h7l5 5v11a1 1 0 0 1-1 1H11a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z' fill='%23fff'/%3E%3C/svg%3E">
 
 <style>
@@ -19,53 +27,59 @@
   --brand:#7c6bff;
   --brand-2:#22d3ee;
   --brand-3:#5b8bff;
-  --grad:linear-gradient(135deg,#7c6bff 0%,#5b8bff 45%,#22d3ee 100%);
+  --grad:linear-gradient(135deg,#7c6bff 0%,#5b8bff 46%,#22d3ee 100%);
   --grad-soft:linear-gradient(135deg,rgba(124,107,255,.16),rgba(34,211,238,.10));
+  --radius-xl:26px;
   --radius:20px;
-  --radius-sm:12px;
+  --radius-sm:13px;
   --radius-xs:9px;
   --ease:cubic-bezier(.22,.68,.32,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
   --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
   --display:'Plus Jakarta Sans','Inter',sans-serif;
-  --container:1160px;
+  --container:1180px;
 }
 
 html[data-theme="dark"]{
-  --bg:#080912;
-  --bg-soft:#0c0e19;
-  --card:rgba(255,255,255,.045);
-  --card-solid:#101322;
-  --card-hover:rgba(255,255,255,.075);
+  --bg:#070810;
+  --bg-soft:#0a0c18;
+  --surface:rgba(255,255,255,.045);
+  --surface-solid:#0e1120;
+  --surface-hover:rgba(255,255,255,.075);
+  --surface-2:rgba(255,255,255,.025);
   --border:rgba(255,255,255,.085);
-  --border-strong:rgba(255,255,255,.17);
+  --border-2:rgba(255,255,255,.17);
   --text:#eef1f8;
-  --text-soft:#c3cade;
-  --muted:#8e98b2;
-  --nav-bg:rgba(8,9,18,.72);
-  --shadow:0 28px 70px -28px rgba(0,0,0,.9);
-  --shadow-sm:0 10px 30px -16px rgba(0,0,0,.9);
+  --text-2:#c3cade;
+  --muted:#8b95b0;
+  --nav-bg:rgba(7,8,16,.72);
+  --shadow:0 30px 80px -30px rgba(0,0,0,.92);
+  --shadow-sm:0 12px 34px -18px rgba(0,0,0,.92);
   --ok:#34d399;
   --err:#fb7185;
   --warn:#fbbf24;
+  --scrollbar:rgba(255,255,255,.12);
 }
 
 html[data-theme="light"]{
-  --bg:#f5f6fb;
+  --bg:#f6f7fb;
   --bg-soft:#ffffff;
-  --card:rgba(255,255,255,.9);
-  --card-solid:#ffffff;
-  --card-hover:rgba(255,255,255,1);
-  --border:rgba(16,22,52,.09);
-  --border-strong:rgba(16,22,52,.18);
+  --surface:rgba(255,255,255,.92);
+  --surface-solid:#ffffff;
+  --surface-hover:rgba(255,255,255,1);
+  --surface-2:rgba(240,242,250,.7);
+  --border:rgba(16,22,52,.085);
+  --border-2:rgba(16,22,52,.18);
   --text:#0c1128;
-  --text-soft:#2c3453;
-  --muted:#606a89;
-  --nav-bg:rgba(245,246,251,.78);
-  --shadow:0 28px 70px -30px rgba(24,32,74,.30);
-  --shadow-sm:0 10px 28px -18px rgba(24,32,74,.34);
+  --text-2:#2c3453;
+  --muted:#5f6a89;
+  --nav-bg:rgba(246,247,251,.8);
+  --shadow:0 30px 80px -34px rgba(24,32,74,.32);
+  --shadow-sm:0 12px 30px -20px rgba(24,32,74,.36);
   --ok:#059669;
   --err:#e11d48;
   --warn:#b45309;
+  --scrollbar:rgba(16,22,52,.16);
 }
 
 /* ============================================================
@@ -78,36 +92,43 @@ body{
   font-family:var(--font);
   background:var(--bg);
   color:var(--text);
-  line-height:1.6;
+  line-height:1.62;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   overflow-x:hidden;
-  transition:background .4s var(--ease),color .4s var(--ease);
+  transition:background .45s var(--ease),color .45s var(--ease);
 }
-h1,h2,h3,h4{font-family:var(--display);line-height:1.15;letter-spacing:-.025em;margin:0;font-weight:800;}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.14;letter-spacing:-.028em;margin:0;font-weight:800;}
 p{margin:0;}
 a{color:inherit;text-decoration:none;}
 button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit;}
-input,select{font-family:inherit;color:inherit;}
+input,select,textarea{font-family:inherit;color:inherit;}
 ul,ol{margin:0;padding:0;list-style:none;}
-img,svg{display:block;}
-::selection{background:rgba(124,107,255,.35);color:var(--text);}
+img,svg{display:block;max-width:100%;}
+code,kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
+::selection{background:rgba(124,107,255,.38);color:var(--text);}
 
-:focus-visible{
-  outline:2px solid var(--brand);
-  outline-offset:3px;
-  border-radius:6px;
-}
+::-webkit-scrollbar{width:11px;height:11px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--scrollbar);border-radius:99px;border:3px solid transparent;background-clip:content-box;}
+::-webkit-scrollbar-thumb:hover{background:var(--border-2);background-clip:content-box;}
+
+:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:7px;}
 
 .container{width:min(var(--container),92vw);margin-inline:auto;}
 
-/* Background ambience */
+/* ============================================================
+   AMBIENT BACKGROUND
+   ============================================================ */
 .ambience{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;}
-.orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.42;}
-html[data-theme="light"] .orb{opacity:.30;}
-.orb-1{width:560px;height:560px;top:-190px;left:-140px;background:radial-gradient(circle,#7c6bff,transparent 68%);}
-.orb-2{width:520px;height:520px;top:-120px;right:-160px;background:radial-gradient(circle,#22d3ee,transparent 68%);}
-.orb-3{width:640px;height:640px;bottom:-320px;left:38%;background:radial-gradient(circle,#5b8bff,transparent 70%);opacity:.28;}
+.orb{position:absolute;border-radius:50%;filter:blur(110px);opacity:.42;will-change:transform;}
+html[data-theme="light"] .orb{opacity:.28;}
+.orb-1{width:600px;height:600px;top:-210px;left:-160px;background:radial-gradient(circle,#7c6bff,transparent 68%);animation:float1 26s ease-in-out infinite;}
+.orb-2{width:540px;height:540px;top:-140px;right:-180px;background:radial-gradient(circle,#22d3ee,transparent 68%);animation:float2 30s ease-in-out infinite;}
+.orb-3{width:680px;height:680px;bottom:-340px;left:36%;background:radial-gradient(circle,#5b8bff,transparent 70%);opacity:.26;animation:float1 34s ease-in-out infinite reverse;}
+@keyframes float1{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(30px,40px) scale(1.06);}}
+@keyframes float2{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-40px,30px) scale(1.08);}}
+
 .grid-lines{
   position:absolute;inset:0;
   background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);
@@ -122,89 +143,80 @@ html[data-theme="light"] .orb{opacity:.30;}
    ============================================================ */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
-  font-weight:600;font-size:.94rem;
+  font-weight:600;font-size:.93rem;
   padding:.75rem 1.35rem;border-radius:var(--radius-sm);
   transition:transform .22s var(--ease),box-shadow .28s var(--ease),background .22s var(--ease),border-color .22s var(--ease),opacity .2s;
-  white-space:nowrap;border:1px solid transparent;
-  will-change:transform;
+  white-space:nowrap;border:1px solid transparent;will-change:transform;
 }
 .btn:active{transform:translateY(1px) scale(.995);}
 
 .btn-primary{
-  background:var(--grad);
-  color:#fff;
-  box-shadow:0 12px 32px -14px rgba(124,107,255,.95),inset 0 1px 0 rgba(255,255,255,.34);
+  background:var(--grad);color:#fff;
+  box-shadow:0 14px 34px -14px rgba(124,107,255,.95),inset 0 1px 0 rgba(255,255,255,.34);
   position:relative;overflow:hidden;
 }
 .btn-primary::after{
   content:"";position:absolute;inset:0;
-  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.42) 50%,transparent 70%);
-  transform:translateX(-130%);
-  transition:transform .75s var(--ease);
+  background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.4) 50%,transparent 68%);
+  transform:translateX(-135%);
+  transition:transform .8s var(--ease);
 }
-.btn-primary:hover:not(:disabled)::after{transform:translateX(130%);}
+.btn-primary:hover:not(:disabled)::after{transform:translateX(135%);}
 .btn-primary:hover:not(:disabled){
   transform:translateY(-2px);
-  box-shadow:0 20px 44px -16px rgba(124,107,255,1),inset 0 1px 0 rgba(255,255,255,.4);
+  box-shadow:0 22px 48px -16px rgba(124,107,255,1),inset 0 1px 0 rgba(255,255,255,.42);
 }
-.btn-primary:disabled{
-  opacity:.42;cursor:not-allowed;box-shadow:none;filter:saturate(.5);
-}
+.btn-primary:disabled{opacity:.42;cursor:not-allowed;box-shadow:none;filter:saturate(.4);}
 
 .btn-ghost{
-  background:var(--card);
-  border-color:var(--border);
-  color:var(--text);
+  background:var(--surface);border-color:var(--border);color:var(--text);
   backdrop-filter:blur(12px);
 }
-.btn-ghost:hover{background:var(--card-hover);border-color:var(--border-strong);transform:translateY(-2px);}
+.btn-ghost:hover{background:var(--surface-hover);border-color:var(--border-2);transform:translateY(-2px);}
 
-.btn-lg{padding:.95rem 1.9rem;font-size:1rem;border-radius:14px;}
+.btn-lg{padding:.95rem 1.85rem;font-size:1rem;border-radius:15px;}
 .btn-sm{padding:.55rem 1rem;font-size:.85rem;border-radius:10px;}
 
 .icon-btn{
   width:40px;height:40px;border-radius:11px;
   display:grid;place-items:center;
-  background:var(--card);border:1px solid var(--border);
-  color:var(--text-soft);
-  transition:.22s var(--ease);
+  background:var(--surface);border:1px solid var(--border);
+  color:var(--text-2);transition:.22s var(--ease);
 }
-.icon-btn:hover{background:var(--card-hover);color:var(--text);border-color:var(--border-strong);transform:translateY(-1px);}
+.icon-btn:hover{background:var(--surface-hover);color:var(--text);border-color:var(--border-2);transform:translateY(-1px);}
 .icon-btn svg{width:18px;height:18px;}
 
 /* ============================================================
    NAVBAR
    ============================================================ */
 .nav{
-  position:sticky;top:0;z-index:80;
+  position:sticky;top:0;z-index:90;
   background:var(--nav-bg);
-  backdrop-filter:blur(20px) saturate(170%);
-  -webkit-backdrop-filter:blur(20px) saturate(170%);
+  backdrop-filter:blur(22px) saturate(180%);
+  -webkit-backdrop-filter:blur(22px) saturate(180%);
   border-bottom:1px solid var(--border);
 }
 .nav-inner{display:flex;align-items:center;gap:1.4rem;height:70px;}
-.brand{display:flex;align-items:center;gap:.65rem;font-family:var(--display);font-weight:800;font-size:1.08rem;letter-spacing:-.03em;}
+.brand{display:flex;align-items:center;gap:.65rem;font-family:var(--display);font-weight:800;font-size:1.08rem;letter-spacing:-.03em;flex-shrink:0;}
 .brand-mark{
-  width:36px;height:36px;border-radius:11px;
-  background:var(--grad);
+  width:36px;height:36px;border-radius:11px;background:var(--grad);
   display:grid;place-items:center;
-  box-shadow:0 8px 22px -10px rgba(124,107,255,.95),inset 0 1px 0 rgba(255,255,255,.4);
+  box-shadow:0 8px 24px -10px rgba(124,107,255,.95),inset 0 1px 0 rgba(255,255,255,.4);
   flex-shrink:0;
 }
 .brand-mark svg{width:19px;height:19px;color:#fff;}
 .brand-text span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
 
-.nav-links{display:flex;gap:.25rem;margin-left:auto;}
+.nav-links{display:flex;gap:.2rem;margin-left:auto;}
 .nav-links a{
-  font-size:.875rem;font-weight:500;color:var(--muted);
-  padding:.5rem .85rem;border-radius:9px;
-  transition:.2s var(--ease);
+  font-size:.865rem;font-weight:500;color:var(--muted);
+  padding:.5rem .82rem;border-radius:9px;transition:.2s var(--ease);
 }
-.nav-links a:hover{color:var(--text);background:var(--card);}
+.nav-links a:hover{color:var(--text);background:var(--surface);}
 
-.nav-actions{display:flex;align-items:center;gap:.6rem;}
+.nav-actions{display:flex;align-items:center;gap:.55rem;}
 
-@media (max-width:900px){
+@media (max-width:960px){
   .nav-links{display:none;}
   .nav-actions{margin-left:auto;}
 }
@@ -215,11 +227,10 @@ html[data-theme="light"] .orb{opacity:.30;}
 .hero{padding:clamp(3.5rem,8vw,6.5rem) 0 clamp(2.5rem,5vw,4rem);text-align:center;}
 .pill{
   display:inline-flex;align-items:center;gap:.5rem;
-  font-size:.79rem;font-weight:600;letter-spacing:.01em;
+  font-size:.78rem;font-weight:600;letter-spacing:.01em;
   padding:.42rem .95rem;border-radius:999px;
-  background:var(--card);border:1px solid var(--border);
-  color:var(--text-soft);
-  backdrop-filter:blur(10px);
+  background:var(--surface);border:1px solid var(--border);
+  color:var(--text-2);backdrop-filter:blur(10px);
   box-shadow:var(--shadow-sm);
 }
 .pill .dot{
@@ -233,28 +244,22 @@ html[data-theme="light"] .orb{opacity:.30;}
 }
 
 .hero h1{
-  font-size:clamp(2.4rem,6vw,4.35rem);
-  margin:1.5rem auto 0;
-  max-width:17ch;
-  letter-spacing:-.04em;
+  font-size:clamp(2.4rem,6vw,4.4rem);
+  margin:1.5rem auto 0;max-width:17ch;letter-spacing:-.042em;
 }
 .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
 .lede{
-  margin:1.35rem auto 0;max-width:58ch;
-  font-size:clamp(1rem,1.6vw,1.13rem);
-  color:var(--muted);
+  margin:1.35rem auto 0;max-width:60ch;
+  font-size:clamp(1rem,1.6vw,1.13rem);color:var(--muted);
 }
 .hero-cta{display:flex;gap:.85rem;justify-content:center;flex-wrap:wrap;margin-top:2.2rem;}
 
-.trust{
-  display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;
-  margin-top:2.6rem;
-}
+.trust{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-top:2.6rem;}
 .trust-chip{
   display:flex;align-items:center;gap:.5rem;
-  font-size:.82rem;font-weight:500;color:var(--muted);
+  font-size:.81rem;font-weight:500;color:var(--muted);
   padding:.5rem 1rem;border-radius:999px;
-  background:var(--card);border:1px solid var(--border);
+  background:var(--surface);border:1px solid var(--border);
 }
 .trust-chip svg{width:15px;height:15px;color:var(--brand);flex-shrink:0;}
 
@@ -262,34 +267,36 @@ html[data-theme="light"] .orb{opacity:.30;}
    SECTION HEADS
    ============================================================ */
 section{scroll-margin-top:88px;}
-.section-head{text-align:center;max-width:640px;margin:0 auto clamp(2rem,4vw,3rem);}
+.section-head{text-align:center;max-width:660px;margin:0 auto clamp(2rem,4vw,3rem);}
 .eyebrow{
-  display:inline-block;font-size:.76rem;font-weight:700;
+  display:inline-block;font-size:.75rem;font-weight:700;
   letter-spacing:.14em;text-transform:uppercase;
   color:var(--brand);margin-bottom:.9rem;
 }
-.section-head h2{font-size:clamp(1.7rem,3.6vw,2.5rem);}
+.section-head h2{font-size:clamp(1.7rem,3.6vw,2.55rem);}
 .section-head p{color:var(--muted);margin-top:.85rem;font-size:1rem;}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out);}
+.reveal.in{opacity:1;transform:none;}
 
 /* ============================================================
    TOOL CARD
    ============================================================ */
-.tool-section{padding:clamp(1rem,3vw,2rem) 0 clamp(3.5rem,7vw,6rem);}
+.tool-section{padding:clamp(1rem,3vw,2rem) 0 clamp(3rem,6vw,5rem);}
 
 .tool-card{
-  position:relative;
-  border-radius:26px;
-  padding:clamp(1.1rem,2.6vw,1.85rem);
+  position:relative;border-radius:var(--radius-xl);
+  padding:clamp(1.1rem,2.6vw,1.9rem);
   background:
     radial-gradient(120% 100% at 0% 0%,rgba(124,107,255,.10),transparent 58%),
     radial-gradient(120% 100% at 100% 0%,rgba(34,211,238,.08),transparent 55%),
-    var(--card-solid);
+    var(--surface-solid);
   border:1px solid var(--border);
   box-shadow:var(--shadow);
-  backdrop-filter:blur(20px);
 }
 .tool-card::before{
-  content:"";position:absolute;inset:-1px;border-radius:27px;padding:1px;
+  content:"";position:absolute;inset:-1px;border-radius:calc(var(--radius-xl) + 1px);padding:1px;
   background:linear-gradient(140deg,rgba(124,107,255,.55),transparent 38%,transparent 62%,rgba(34,211,238,.45));
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
   -webkit-mask-composite:xor;mask-composite:exclude;
@@ -298,29 +305,21 @@ section{scroll-margin-top:88px;}
 
 /* Dropzone */
 .dropzone{
-  position:relative;
-  border:1.6px dashed var(--border-strong);
-  border-radius:18px;
-  padding:clamp(2rem,5vw,3.1rem) 1.4rem;
-  text-align:center;
-  cursor:pointer;
-  transition:.28s var(--ease);
-  background:rgba(124,107,255,.028);
-  overflow:hidden;
+  position:relative;border:1.6px dashed var(--border-2);
+  border-radius:18px;padding:clamp(2rem,5vw,3.1rem) 1.4rem;
+  text-align:center;cursor:pointer;transition:.28s var(--ease);
+  background:rgba(124,107,255,.028);overflow:hidden;
 }
 .dropzone:hover,.dropzone.dragover{
-  border-color:var(--brand);
-  background:rgba(124,107,255,.085);
+  border-color:var(--brand);background:rgba(124,107,255,.085);
   transform:translateY(-2px);
-  box-shadow:0 20px 44px -26px rgba(124,107,255,.9);
+  box-shadow:0 22px 48px -26px rgba(124,107,255,.9);
 }
 .dropzone.dragover{transform:scale(1.005);}
 .dz-icon{
   width:62px;height:62px;margin:0 auto 1.1rem;border-radius:18px;
-  background:var(--grad-soft);
-  border:1px solid var(--border);
-  display:grid;place-items:center;
-  color:var(--brand);
+  background:var(--grad-soft);border:1px solid var(--border);
+  display:grid;place-items:center;color:var(--brand);
   transition:.3s var(--ease);
 }
 .dropzone:hover .dz-icon,.dropzone.dragover .dz-icon{transform:translateY(-3px) scale(1.05);}
@@ -328,20 +327,20 @@ section{scroll-margin-top:88px;}
 .dz-title{font-family:var(--display);font-weight:700;font-size:1.1rem;margin-bottom:.35rem;}
 .dz-sub{color:var(--muted);font-size:.9rem;}
 .dz-sub b{color:var(--brand);font-weight:600;}
-.dz-note{color:var(--muted);font-size:.78rem;margin-top:.9rem;opacity:.85;}
+.dz-note{color:var(--muted);font-size:.77rem;margin-top:.9rem;opacity:.85;}
 #fileInput{display:none;}
 
-/* Toolbar */
+/* File area */
 .file-area{margin-top:1.4rem;animation:fadeUp .38s var(--ease);}
 .file-toolbar{
   display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;
   padding:.15rem .25rem 1rem;
 }
 .file-count{
-  font-size:.85rem;font-weight:600;color:var(--text-soft);
+  font-size:.85rem;font-weight:600;color:var(--text-2);
   display:flex;align-items:center;gap:.5rem;
 }
-.file-count .cnt-badge{
+.cnt-badge{
   background:var(--grad);color:#fff;font-size:.72rem;font-weight:700;
   min-width:22px;height:22px;padding:0 .42rem;border-radius:7px;
   display:inline-grid;place-items:center;
@@ -349,12 +348,12 @@ section{scroll-margin-top:88px;}
 .toolbar-actions{display:flex;gap:.45rem;flex-wrap:wrap;margin-left:auto;}
 .tbtn{
   display:inline-flex;align-items:center;gap:.4rem;
-  font-size:.8rem;font-weight:500;color:var(--text-soft);
+  font-size:.79rem;font-weight:500;color:var(--text-2);
   padding:.44rem .8rem;border-radius:9px;
-  background:var(--card);border:1px solid var(--border);
+  background:var(--surface);border:1px solid var(--border);
   transition:.2s var(--ease);
 }
-.tbtn:hover{background:var(--card-hover);border-color:var(--border-strong);color:var(--text);transform:translateY(-1px);}
+.tbtn:hover{background:var(--surface-hover);border-color:var(--border-2);color:var(--text);transform:translateY(-1px);}
 .tbtn svg{width:14px;height:14px;}
 .tbtn.danger:hover{color:var(--err);border-color:rgba(251,113,133,.45);background:rgba(251,113,133,.1);}
 
@@ -362,105 +361,155 @@ section{scroll-margin-top:88px;}
 .file-list{display:flex;flex-direction:column;gap:.65rem;}
 
 .file-card{
-  display:flex;align-items:flex-start;gap:.9rem;
-  padding:.9rem 1rem;
-  background:var(--card);
+  display:flex;align-items:flex-start;gap:.85rem;
+  padding:.85rem .95rem;
+  background:var(--surface);
   border:1px solid var(--border);
   border-radius:15px;
   transition:.22s var(--ease);
   animation:fadeUp .3s var(--ease) both;
 }
-.file-card:hover{background:var(--card-hover);border-color:var(--border-strong);}
-.file-card.dragging{opacity:.4;transform:scale(.985);}
+.file-card:hover{background:var(--surface-hover);border-color:var(--border-2);}
+.file-card.dragging{opacity:.35;transform:scale(.985);}
 .file-card.drag-over{border-color:var(--brand);box-shadow:0 0 0 2px rgba(124,107,255,.28);}
 
 .drag-handle{
-  width:26px;height:34px;flex-shrink:0;
-  display:grid;place-items:center;
-  color:var(--muted);cursor:grab;border-radius:6px;
-  transition:.18s;
-  margin-top:1px;
+  width:24px;height:34px;flex-shrink:0;
+  display:grid;place-items:center;color:var(--muted);
+  cursor:grab;border-radius:6px;transition:.18s;margin-top:2px;
 }
-.drag-handle:hover{color:var(--text);background:var(--card-hover);}
+.drag-handle:hover{color:var(--text);background:var(--surface-hover);}
 .drag-handle:active{cursor:grabbing;}
 .drag-handle svg{width:15px;height:15px;}
 
-.file-icon{
-  width:42px;height:42px;flex-shrink:0;border-radius:11px;
-  display:grid;place-items:center;position:relative;
-  background:linear-gradient(150deg,rgba(124,107,255,.22),rgba(34,211,238,.14));
-  border:1px solid var(--border);
-  font-size:.56rem;font-weight:800;letter-spacing:.06em;color:var(--brand);
+.file-thumb{
+  width:54px;height:70px;flex-shrink:0;border-radius:8px;
+  background:var(--surface-2);border:1px solid var(--border);
+  overflow:hidden;position:relative;
+  display:grid;place-items:center;
 }
-.file-icon svg{width:20px;height:20px;}
-.file-icon span{position:absolute;bottom:4px;font-size:.5rem;}
+.file-thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
+.thumb-fallback{
+  font-size:.48rem;font-weight:800;letter-spacing:.06em;
+  color:var(--brand);text-align:center;padding:.2rem;
+}
+.thumb-skeleton{
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,var(--surface-2) 25%,var(--surface-hover) 50%,var(--surface-2) 75%);
+  background-size:220% 100%;
+  animation:shimmer 1.4s infinite;
+}
+@keyframes shimmer{0%{background-position:220% 0;}100%{background-position:-220% 0;}}
 
-.file-main{flex:1;min-width:0;}
-.file-title{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;}
+.file-main{flex:1;min-width:0;padding-top:.1rem;}
+.file-title{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;}
 .file-name{
-  font-weight:600;font-size:.92rem;
+  font-weight:600;font-size:.9rem;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-  max-width:min(100%,380px);
+  max-width:min(100%,360px);
 }
 .badge{
-  font-size:.68rem;font-weight:700;letter-spacing:.02em;
+  font-size:.67rem;font-weight:700;letter-spacing:.02em;
   padding:.16rem .5rem;border-radius:6px;
   background:rgba(124,107,255,.15);color:var(--brand);
-  border:1px solid rgba(124,107,255,.22);
-  flex-shrink:0;
+  border:1px solid rgba(124,107,255,.22);flex-shrink:0;
 }
-.file-meta{font-size:.78rem;color:var(--muted);margin-top:.1rem;}
+.badge.rot{background:rgba(34,211,238,.14);color:var(--brand-2);border-color:rgba(34,211,238,.24);}
+.file-meta{font-size:.77rem;color:var(--muted);margin-top:.1rem;}
 
-.file-controls{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;margin-top:.65rem;}
-.ctl{display:flex;align-items:center;gap:.4rem;font-size:.76rem;color:var(--muted);}
+.file-controls{display:flex;align-items:center;gap:.65rem;flex-wrap:wrap;margin-top:.6rem;}
+.ctl{display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--muted);}
 .ctl > span{font-weight:500;white-space:nowrap;}
 .ctl input,.ctl select{
-  background:var(--bg-soft);
-  border:1px solid var(--border);
-  border-radius:8px;
-  padding:.32rem .55rem;
-  font-size:.78rem;
-  color:var(--text);
-  transition:.18s;
-  outline:none;
+  background:var(--bg-soft);border:1px solid var(--border);
+  border-radius:8px;padding:.32rem .55rem;font-size:.77rem;
+  color:var(--text);transition:.18s;outline:none;
 }
 html[data-theme="dark"] .ctl input,html[data-theme="dark"] .ctl select{background:rgba(255,255,255,.05);}
-.ctl input{width:150px;}
-.ctl input::placeholder{color:var(--muted);opacity:.75;}
+.ctl input{width:158px;}
+.ctl input::placeholder{color:var(--muted);opacity:.7;}
 .ctl input:focus,.ctl select:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(124,107,255,.18);}
-.ctl select{cursor:pointer;padding-right:.4rem;}
+.ctl select{cursor:pointer;padding-right:.35rem;}
 .ctl input.invalid{border-color:var(--err);box-shadow:0 0 0 3px rgba(251,113,133,.15);}
-
-.range-status{font-size:.74rem;font-weight:500;color:var(--muted);}
+.range-status{font-size:.73rem;font-weight:500;color:var(--muted);}
 .range-status.ok{color:var(--ok);}
 .range-status.bad{color:var(--err);}
 
-.file-actions{display:flex;gap:.3rem;flex-shrink:0;align-self:center;}
+.file-actions{display:flex;gap:.28rem;flex-shrink:0;align-self:center;}
 .mini-btn{
-  width:30px;height:30px;border-radius:8px;
-  display:grid;place-items:center;
-  color:var(--muted);border:1px solid transparent;
-  transition:.18s var(--ease);
+  width:30px;height:30px;border-radius:8px;display:grid;place-items:center;
+  color:var(--muted);border:1px solid transparent;transition:.18s var(--ease);
 }
-.mini-btn:hover{background:var(--card-hover);color:var(--text);border-color:var(--border);}
+.mini-btn:hover{background:var(--surface-hover);color:var(--text);border-color:var(--border);}
 .mini-btn:disabled{opacity:.28;cursor:not-allowed;}
 .mini-btn.remove:hover{color:var(--err);background:rgba(251,113,133,.12);border-color:rgba(251,113,133,.3);}
 .mini-btn svg{width:15px;height:15px;}
 
+/* Merge order preview */
+.order-panel{
+  margin-top:1.2rem;padding:1rem 1.1rem;
+  border-radius:14px;background:var(--surface-2);
+  border:1px solid var(--border);
+}
+.order-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.7rem;}
+.order-title{font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);}
+.order-total{font-size:.78rem;font-weight:600;color:var(--text-2);}
+.order-bar{
+  display:flex;height:9px;border-radius:999px;overflow:hidden;
+  background:var(--surface);border:1px solid var(--border);
+}
+.order-segment{height:100%;transition:flex-grow .35s var(--ease);}
+.order-legend{display:flex;flex-wrap:wrap;gap:.45rem 1.1rem;margin-top:.7rem;font-size:.76rem;}
+.order-legend-item{display:flex;align-items:center;gap:.4rem;color:var(--text-2);min-width:0;}
+.order-dot{width:9px;height:9px;border-radius:3px;flex-shrink:0;}
+.order-legend-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px;}
+
+/* Output options */
+.options{margin-top:1.3rem;border-radius:14px;border:1px solid var(--border);overflow:hidden;background:var(--surface-2);}
+.options summary{
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:.6rem;
+  padding:.85rem 1.1rem;font-size:.84rem;font-weight:600;color:var(--text-2);
+  transition:.2s;
+}
+.options summary::-webkit-details-marker{display:none;}
+.options summary:hover{color:var(--text);}
+.options summary svg{width:16px;height:16px;color:var(--brand);}
+.options summary .chev{margin-left:auto;transition:transform .3s var(--ease);color:var(--muted);}
+.options[open] summary .chev{transform:rotate(180deg);}
+.options-body{
+  padding:0 1.1rem 1.1rem;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.9rem;
+  animation:fadeUp .3s var(--ease);
+}
+.opt-field label{display:block;font-size:.74rem;font-weight:600;color:var(--muted);margin-bottom:.35rem;letter-spacing:.02em;}
+.opt-field input[type="text"]{
+  width:100%;background:var(--bg-soft);border:1px solid var(--border);
+  border-radius:9px;padding:.5rem .7rem;font-size:.83rem;
+  color:var(--text);outline:none;transition:.18s;
+}
+html[data-theme="dark"] .opt-field input[type="text"]{background:rgba(255,255,255,.05);}
+.opt-field input[type="text"]:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(124,107,255,.18);}
+.opt-check{display:flex;align-items:center;gap:.55rem;font-size:.83rem;color:var(--text-2);cursor:pointer;user-select:none;padding-top:1.2rem;}
+.opt-check input{
+  appearance:none;-webkit-appearance:none;
+  width:18px;height:18px;border-radius:6px;
+  border:1.6px solid var(--border-2);background:var(--bg-soft);
+  display:grid;place-items:center;cursor:pointer;transition:.18s;flex-shrink:0;
+}
+html[data-theme="dark"] .opt-check input{background:rgba(255,255,255,.06);}
+.opt-check input:checked{background:var(--grad);border-color:transparent;}
+.opt-check input:checked::after{content:"";width:10px;height:10px;background:#fff;clip-path:polygon(14% 44%,0 65%,40% 100%,100% 16%,84% 0,38% 62%);}
+
 /* Merge bar */
 .merge-bar{
   display:flex;align-items:flex-end;gap:1rem;flex-wrap:wrap;
-  margin-top:1.5rem;padding-top:1.4rem;
-  border-top:1px solid var(--border);
+  margin-top:1.5rem;padding-top:1.4rem;border-top:1px solid var(--border);
 }
 .filename-field{flex:1 1 260px;min-width:210px;}
-.filename-field label{display:block;font-size:.76rem;font-weight:600;color:var(--muted);margin-bottom:.42rem;letter-spacing:.02em;}
+.filename-field label{display:block;font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:.42rem;letter-spacing:.02em;}
 .input-wrap{
-  display:flex;align-items:center;
-  background:var(--bg-soft);
-  border:1px solid var(--border);
-  border-radius:11px;
-  padding:.1rem .85rem;
+  display:flex;align-items:center;background:var(--bg-soft);
+  border:1px solid var(--border);border-radius:11px;padding:.1rem .85rem;
   transition:.2s var(--ease);
 }
 html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
@@ -472,113 +521,109 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
 .input-wrap span{color:var(--muted);font-size:.86rem;font-weight:500;}
 
 .merge-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-left:auto;}
-.summary{font-size:.82rem;color:var(--muted);text-align:right;line-height:1.4;}
+.summary{font-size:.81rem;color:var(--muted);text-align:right;line-height:1.45;}
 .summary strong{color:var(--text);font-weight:600;}
 
 /* Progress */
-.progress{
-  margin-top:1.2rem;height:8px;border-radius:999px;
-  background:var(--card);border:1px solid var(--border);
-  overflow:hidden;
-}
+.progress{margin-top:1.2rem;height:8px;border-radius:999px;background:var(--surface);border:1px solid var(--border);overflow:hidden;}
 .progress-bar{
-  height:100%;width:0%;border-radius:999px;
-  background:var(--grad);
-  transition:width .35s var(--ease);
-  box-shadow:0 0 14px rgba(124,107,255,.7);
+  height:100%;width:0%;border-radius:999px;background:var(--grad);
+  transition:width .35s var(--ease);box-shadow:0 0 14px rgba(124,107,255,.7);
 }
+.progress-text{margin-top:.5rem;font-size:.78rem;color:var(--muted);text-align:center;}
 
 /* Result */
 .result{
-  margin-top:1.25rem;
-  display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
-  padding:1.05rem 1.2rem;
-  border-radius:15px;
+  margin-top:1.25rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
+  padding:1.05rem 1.2rem;border-radius:15px;
   background:linear-gradient(135deg,rgba(52,211,153,.13),rgba(34,211,238,.07));
   border:1px solid rgba(52,211,153,.32);
   animation:fadeUp .4s var(--ease);
 }
 .result-icon{
-  width:42px;height:42px;border-radius:12px;flex-shrink:0;
-  display:grid;place-items:center;
-  background:rgba(52,211,153,.2);color:var(--ok);
+  width:44px;height:44px;border-radius:12px;flex-shrink:0;
+  display:grid;place-items:center;background:rgba(52,211,153,.2);color:var(--ok);
 }
-.result-icon svg{width:21px;height:21px;}
+.result-icon svg{width:22px;height:22px;}
 .result-body{flex:1;min-width:180px;}
-.result-title{font-weight:700;font-size:.94rem;font-family:var(--display);}
+.result-title{font-weight:700;font-size:.94rem;font-family:var(--display);word-break:break-all;}
 .result-meta{font-size:.79rem;color:var(--muted);margin-top:.12rem;}
 .result .btn{flex-shrink:0;}
 
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(10px);}
-  to{opacity:1;transform:translateY(0);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+/* ============================================================
+   AD SLOTS
+   ============================================================ */
+.ad-wrap{padding:0 0 clamp(2rem,4vw,3rem);}
+.ad-slot{
+  position:relative;min-height:100px;
+  border-radius:16px;
+  border:1px dashed var(--border-2);
+  background:var(--surface-2);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  padding:1.2rem 1rem .8rem;
 }
+.ad-slot .ad-label{
+  position:absolute;top:8px;left:50%;transform:translateX(-50%);
+  font-size:.63rem;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);opacity:.55;
+  pointer-events:none;white-space:nowrap;
+}
+.ad-slot iframe,.ad-slot img{max-width:100%;display:block;}
+.ad-slot > *:not(.ad-label){position:relative;z-index:1;}
+.ad-slot .ad-placeholder{
+  font-size:.8rem;color:var(--muted);opacity:.7;text-align:center;
+  max-width:46ch;line-height:1.5;
+}
+@media (max-width:640px){.ad-slot{min-height:80px;}}
 
 /* ============================================================
    FEATURES
    ============================================================ */
 .features{padding:clamp(3rem,6vw,5.5rem) 0;}
-.feature-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:1rem;
-}
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;}
 .feature-card{
-  position:relative;
-  padding:1.6rem 1.4rem;
-  border-radius:18px;
-  background:var(--card);
-  border:1px solid var(--border);
-  transition:.3s var(--ease);
-  overflow:hidden;
+  position:relative;padding:1.6rem 1.4rem;border-radius:18px;
+  background:var(--surface);border:1px solid var(--border);
+  transition:.3s var(--ease);overflow:hidden;
 }
 .feature-card::after{
   content:"";position:absolute;inset:0;
   background:radial-gradient(300px 160px at var(--mx,50%) var(--my,0%),rgba(124,107,255,.14),transparent 70%);
-  opacity:0;transition:opacity .35s;
-  pointer-events:none;
+  opacity:0;transition:opacity .35s;pointer-events:none;
 }
-.feature-card:hover{transform:translateY(-4px);border-color:var(--border-strong);box-shadow:var(--shadow-sm);}
+.feature-card:hover{transform:translateY(-4px);border-color:var(--border-2);box-shadow:var(--shadow-sm);}
 .feature-card:hover::after{opacity:1;}
 .feat-icon{
-  width:44px;height:44px;border-radius:12px;
-  display:grid;place-items:center;
-  background:var(--grad-soft);
-  border:1px solid var(--border);
-  color:var(--brand);
-  margin-bottom:1rem;
+  width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+  background:var(--grad-soft);border:1px solid var(--border);
+  color:var(--brand);margin-bottom:1rem;
 }
 .feat-icon svg{width:21px;height:21px;}
-.feature-card h3{font-size:1.02rem;margin-bottom:.45rem;}
-.feature-card p{font-size:.875rem;color:var(--muted);line-height:1.62;}
+.feature-card h3{font-size:1.01rem;margin-bottom:.45rem;}
+.feature-card p{font-size:.87rem;color:var(--muted);line-height:1.62;}
 
 /* ============================================================
    HOW IT WORKS
    ============================================================ */
 .how{padding:clamp(3rem,6vw,5.5rem) 0;}
-.steps{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:1.2rem;position:relative;
-}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;}
 .step{
-  position:relative;
-  padding:1.7rem 1.5rem;
-  border-radius:18px;
-  background:var(--card);
-  border:1px solid var(--border);
+  position:relative;padding:1.7rem 1.5rem;border-radius:18px;
+  background:var(--surface);border:1px solid var(--border);
   transition:.3s var(--ease);
 }
-.step:hover{transform:translateY(-4px);border-color:var(--border-strong);box-shadow:var(--shadow-sm);}
+.step:hover{transform:translateY(-4px);border-color:var(--border-2);box-shadow:var(--shadow-sm);}
 .step-num{
   font-family:var(--display);font-weight:800;font-size:.82rem;
-  width:34px;height:34px;border-radius:10px;
-  display:grid;place-items:center;
-  background:var(--grad);color:#fff;
-  margin-bottom:1rem;
+  width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
+  background:var(--grad);color:#fff;margin-bottom:1rem;
   box-shadow:0 10px 24px -12px rgba(124,107,255,.95);
 }
 .step h3{font-size:1rem;margin-bottom:.45rem;}
-.step p{font-size:.875rem;color:var(--muted);line-height:1.62;}
+.step p{font-size:.87rem;color:var(--muted);line-height:1.62;}
 
 /* ============================================================
    PRIVACY
@@ -586,80 +631,119 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
 .privacy{padding:clamp(3rem,6vw,5.5rem) 0;}
 .privacy-card{
   display:grid;grid-template-columns:1.05fr 1fr;gap:2.4rem;align-items:center;
-  padding:clamp(1.8rem,4vw,3rem);
-  border-radius:24px;
+  padding:clamp(1.8rem,4vw,3rem);border-radius:24px;
   background:
     radial-gradient(90% 120% at 0% 0%,rgba(52,211,153,.10),transparent 60%),
-    var(--card-solid);
-  border:1px solid var(--border);
-  box-shadow:var(--shadow);
+    var(--surface-solid);
+  border:1px solid var(--border);box-shadow:var(--shadow);
 }
 .privacy-card h2{font-size:clamp(1.55rem,3vw,2.1rem);margin-bottom:.9rem;}
 .privacy-card p{color:var(--muted);font-size:.95rem;}
 .check-list{margin-top:1.4rem;display:flex;flex-direction:column;gap:.75rem;}
-.check-list li{display:flex;gap:.7rem;align-items:flex-start;font-size:.9rem;color:var(--text-soft);}
+.check-list li{display:flex;gap:.7rem;align-items:flex-start;font-size:.9rem;color:var(--text-2);}
 .check-list svg{width:19px;height:19px;color:var(--ok);flex-shrink:0;margin-top:2px;}
 
 .shield-visual{
-  display:grid;place-items:center;
-  aspect-ratio:1/1;max-width:290px;margin-inline:auto;width:100%;
-  border-radius:50%;
+  display:grid;place-items:center;aspect-ratio:1/1;max-width:290px;
+  margin-inline:auto;width:100%;border-radius:50%;
   background:radial-gradient(circle,rgba(124,107,255,.16),transparent 68%);
   position:relative;
 }
 .shield-visual::before{
-  content:"";position:absolute;inset:8%;
-  border-radius:50%;
-  border:1px dashed var(--border-strong);
-  animation:spin 34s linear infinite;
+  content:"";position:absolute;inset:8%;border-radius:50%;
+  border:1px dashed var(--border-2);animation:spin 34s linear infinite;
 }
 @keyframes spin{to{transform:rotate(360deg);}}
 .shield-visual svg{width:96px;height:96px;color:var(--brand);filter:drop-shadow(0 12px 26px rgba(124,107,255,.45));}
-
 @media (max-width:820px){
   .privacy-card{grid-template-columns:1fr;gap:1.6rem;}
   .shield-visual{max-width:200px;}
 }
 
 /* ============================================================
+   SITE OWNER / ADSTERRA GUIDE
+   ============================================================ */
+.owners{padding:clamp(3rem,6vw,5.5rem) 0;}
+.owners-card{
+  border-radius:24px;border:1px solid var(--border);
+  background:var(--surface-solid);
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.owners-head{
+  padding:clamp(1.5rem,3vw,2.2rem);
+  background:
+    radial-gradient(120% 140% at 0% 0%,rgba(251,191,36,.10),transparent 58%),
+    radial-gradient(120% 140% at 100% 0%,rgba(124,107,255,.10),transparent 58%);
+  border-bottom:1px solid var(--border);
+}
+.owners-head .eyebrow{color:var(--warn);}
+.owners-head h2{font-size:clamp(1.5rem,3vw,2.05rem);margin-bottom:.6rem;}
+.owners-head p{color:var(--muted);font-size:.93rem;max-width:70ch;}
+.owners-body{padding:clamp(1.5rem,3vw,2.2rem);display:grid;gap:1.5rem;}
+.owner-step{
+  display:grid;grid-template-columns:44px 1fr;gap:1rem;align-items:start;
+}
+.owner-step .num{
+  width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+  background:var(--grad-soft);border:1px solid var(--border);
+  font-family:var(--display);font-weight:800;font-size:.82rem;color:var(--brand);
+}
+.owner-step h3{font-size:1rem;margin-bottom:.4rem;}
+.owner-step p{font-size:.87rem;color:var(--muted);margin-bottom:.6rem;}
+.owner-step ul{display:flex;flex-direction:column;gap:.4rem;}
+.owner-step li{font-size:.85rem;color:var(--text-2);display:flex;gap:.55rem;align-items:flex-start;}
+.owner-step li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--brand);flex-shrink:0;margin-top:.55rem;}
+.code-block{
+  margin-top:.6rem;border-radius:11px;border:1px solid var(--border);
+  background:var(--bg-soft);padding:.85rem 1rem;
+  font-size:.78rem;line-height:1.65;color:var(--text-2);
+  overflow-x:auto;white-space:pre;
+}
+html[data-theme="dark"] .code-block{background:rgba(0,0,0,.35);}
+.code-block code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;}
+.kbd{
+  display:inline-block;padding:.1rem .45rem;border-radius:5px;
+  background:var(--surface);border:1px solid var(--border-2);
+  font-size:.76rem;font-weight:600;font-family:ui-monospace,monospace;
+  box-shadow:0 1px 0 var(--border-2);
+}
+.owner-note{
+  display:flex;gap:.75rem;align-items:flex-start;
+  padding:.9rem 1rem;border-radius:11px;
+  background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.28);
+  font-size:.84rem;color:var(--text-2);
+}
+.owner-note svg{width:18px;height:18px;color:var(--warn);flex-shrink:0;margin-top:2px;}
+
+/* ============================================================
    FAQ
    ============================================================ */
 .faq{padding:clamp(3rem,6vw,5.5rem) 0;}
-.faq-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:.7rem;}
-.faq-item{
-  border-radius:14px;
-  background:var(--card);
-  border:1px solid var(--border);
-  overflow:hidden;
-  transition:.25s var(--ease);
-}
-.faq-item[open]{border-color:var(--border-strong);background:var(--card-hover);}
+.faq-list{max-width:840px;margin:0 auto;display:flex;flex-direction:column;gap:.7rem;}
+.faq-item{border-radius:14px;background:var(--surface);border:1px solid var(--border);overflow:hidden;transition:.25s var(--ease);}
+.faq-item[open]{border-color:var(--border-2);background:var(--surface-hover);}
 .faq-item summary{
-  list-style:none;cursor:pointer;
-  display:flex;align-items:center;gap:1rem;
-  padding:1.05rem 1.25rem;
-  font-weight:600;font-size:.94rem;
-  transition:.2s;
+  list-style:none;cursor:pointer;display:flex;align-items:center;gap:1rem;
+  padding:1.05rem 1.25rem;font-weight:600;font-size:.93rem;transition:.2s;
 }
 .faq-item summary::-webkit-details-marker{display:none;}
 .faq-item summary:hover{color:var(--brand);}
 .faq-plus{
-  margin-left:auto;flex-shrink:0;
-  width:24px;height:24px;border-radius:7px;
-  display:grid;place-items:center;
-  background:var(--card);border:1px solid var(--border);
-  color:var(--muted);
-  transition:.3s var(--ease);
+  margin-left:auto;flex-shrink:0;width:24px;height:24px;border-radius:7px;
+  display:grid;place-items:center;background:var(--surface);
+  border:1px solid var(--border);color:var(--muted);transition:.3s var(--ease);
 }
 .faq-plus svg{width:13px;height:13px;transition:.3s var(--ease);}
 .faq-item[open] .faq-plus{background:var(--grad);border-color:transparent;color:#fff;}
 .faq-item[open] .faq-plus svg{transform:rotate(45deg);}
-.faq-body{
-  padding:0 1.25rem 1.2rem;
-  color:var(--muted);font-size:.9rem;line-height:1.72;
-  animation:fadeUp .3s var(--ease);
-}
+.faq-body{padding:0 1.25rem 1.2rem;color:var(--muted);font-size:.89rem;line-height:1.72;animation:fadeUp .3s var(--ease);}
 .faq-body a{color:var(--brand);font-weight:600;}
+.faq-body ol{list-style:decimal;padding-left:1.2rem;display:flex;flex-direction:column;gap:.4rem;}
+.faq-body ul{list-style:disc;padding-left:1.2rem;display:flex;flex-direction:column;gap:.4rem;}
+.faq-body code{
+  background:var(--surface-2);border:1px solid var(--border);
+  padding:.08rem .4rem;border-radius:5px;font-size:.82em;color:var(--brand);
+}
 
 /* ============================================================
    FOOTER
@@ -670,32 +754,43 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
   background:var(--bg-soft);
   padding:clamp(2.5rem,5vw,3.5rem) 0 1.6rem;
 }
-.footer-grid{
-  display:grid;grid-template-columns:1.6fr repeat(3,1fr);
-  gap:2rem;
-}
-.footer-brand p{color:var(--muted);font-size:.86rem;margin-top:.85rem;max-width:32ch;line-height:1.65;}
-.footer-col h4{
-  font-size:.78rem;font-weight:700;letter-spacing:.11em;
-  text-transform:uppercase;color:var(--muted);margin-bottom:.9rem;
-}
+.footer-grid{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:2rem;}
+.footer-brand p{color:var(--muted);font-size:.85rem;margin-top:.85rem;max-width:34ch;line-height:1.65;}
+.footer-col h4{font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.9rem;}
 .footer-col ul{display:flex;flex-direction:column;gap:.55rem;}
-.footer-col a{font-size:.86rem;color:var(--text-soft);transition:.2s;}
+.footer-col a{font-size:.85rem;color:var(--text-2);transition:.2s;}
 .footer-col a:hover{color:var(--brand);}
 .footer-bottom{
-  margin-top:2.4rem;padding-top:1.4rem;
-  border-top:1px solid var(--border);
+  margin-top:2.4rem;padding-top:1.4rem;border-top:1px solid var(--border);
   display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
-  font-size:.8rem;color:var(--muted);
+  font-size:.79rem;color:var(--muted);
 }
-
 @media (max-width:820px){
   .footer-grid{grid-template-columns:1fr 1fr;}
   .footer-brand{grid-column:1/-1;}
 }
-@media (max-width:520px){
-  .footer-grid{grid-template-columns:1fr;}
+@media (max-width:520px){.footer-grid{grid-template-columns:1fr;}}
+
+/* ============================================================
+   DRAG OVERLAY
+   ============================================================ */
+.drag-overlay{
+  position:fixed;inset:0;z-index:150;
+  background:rgba(7,8,16,.72);
+  backdrop-filter:blur(12px);
+  display:none;align-items:center;justify-content:center;
+  pointer-events:none;
 }
+.drag-overlay.active{display:flex;animation:fadeIn .2s var(--ease);}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.drag-overlay-inner{
+  text-align:center;padding:2.5rem 3rem;border-radius:24px;
+  border:2px dashed var(--brand);
+  background:rgba(124,107,255,.12);
+  color:#fff;
+}
+.drag-overlay-inner svg{width:52px;height:52px;margin:0 auto 1rem;color:var(--brand-2);}
+.drag-overlay-inner p{font-family:var(--display);font-weight:700;font-size:1.15rem;}
 
 /* ============================================================
    TOASTS
@@ -703,18 +798,15 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
 .toast-stack{
   position:fixed;bottom:22px;right:22px;z-index:200;
   display:flex;flex-direction:column;gap:.6rem;
-  max-width:min(370px,calc(100vw - 32px));
+  max-width:min(380px,calc(100vw - 32px));
 }
 .toast{
   display:flex;align-items:flex-start;gap:.7rem;
-  padding:.85rem 1rem;
-  border-radius:13px;
-  background:var(--card-solid);
-  border:1px solid var(--border-strong);
-  box-shadow:var(--shadow);
-  font-size:.855rem;line-height:1.5;
+  padding:.85rem 1rem;border-radius:13px;
+  background:var(--surface-solid);border:1px solid var(--border-2);
+  box-shadow:var(--shadow);font-size:.85rem;line-height:1.5;
   animation:toastIn .35s var(--ease);
-  backdrop-filter:blur(16px);
+  backdrop-filter:blur(16px);cursor:pointer;
 }
 .toast.out{animation:toastOut .28s var(--ease) forwards;}
 .toast svg{width:18px;height:18px;flex-shrink:0;margin-top:1px;}
@@ -727,7 +819,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
 @keyframes toastOut{to{opacity:0;transform:translateX(28px) scale(.96);}}
 
 /* ============================================================
-   RESPONSIVE TWEAKS
+   RESPONSIVE
    ============================================================ */
 @media (max-width:640px){
   .file-card{flex-wrap:wrap;}
@@ -740,18 +832,24 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
   .merge-actions .btn{width:100%;}
   .toolbar-actions{width:100%;margin-left:0;}
   .file-toolbar{gap:.5rem;}
+  .order-legend-name{max-width:120px;}
+  .owner-step{grid-template-columns:1fr;}
+  .owner-step .num{width:34px;height:34px;}
 }
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important;}
   html{scroll-behavior:auto;}
+  .reveal{opacity:1;transform:none;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- Ambient background -->
+<!-- ============================================================
+     AMBIENT BACKGROUND
+     ============================================================ -->
 <div class="ambience" aria-hidden="true">
   <div class="grid-lines"></div>
   <div class="orb orb-1"></div>
@@ -759,10 +857,12 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
   <div class="orb orb-3"></div>
 </div>
 
-<!-- ================= NAVBAR ================= -->
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
 <header class="nav">
   <div class="container nav-inner">
-    <a class="brand" href="#top">
+    <a class="brand" href="#top" aria-label="Merge PDF home">
       <span class="brand-mark">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/>
@@ -781,6 +881,12 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
     </nav>
 
     <div class="nav-actions">
+      <button class="icon-btn" id="btnShortcuts" aria-label="Keyboard shortcuts" title="Keyboard shortcuts ( ? )">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="6" width="20" height="12" rx="2"/>
+          <path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8"/>
+        </svg>
+      </button>
       <button class="icon-btn" id="themeToggle" aria-label="Toggle colour theme" title="Toggle theme">
         <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
@@ -793,7 +899,9 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
 
 <main id="top">
 
-  <!-- ================= HERO ================= -->
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
   <section class="hero">
     <div class="container">
       <span class="pill"><span class="dot"></span> 100% browser-based · your files never leave your device</span>
@@ -834,17 +942,19 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
     </div>
   </section>
 
-  <!-- ================= TOOL ================= -->
+  <!-- ============================================================
+       TOOL
+       ============================================================ -->
   <section class="tool-section" id="tool">
     <div class="container">
 
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">The Tool</span>
         <h2>Merge your PDFs</h2>
         <p>Drop your files, set the exact order, and download one clean combined document.</p>
       </div>
 
-      <div class="tool-card">
+      <div class="tool-card reveal" id="toolCard">
 
         <!-- Dropzone -->
         <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Add PDF files: click, or drag and drop">
@@ -861,7 +971,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
           <input type="file" id="fileInput" accept="application/pdf,.pdf" multiple>
         </div>
 
-        <!-- File list -->
+        <!-- File area -->
         <div class="file-area" id="fileArea" hidden>
           <div class="file-toolbar">
             <div class="file-count" id="fileCount"></div>
@@ -886,6 +996,43 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
           </div>
 
           <ul class="file-list" id="fileList"></ul>
+
+          <!-- Merge order preview -->
+          <div class="order-panel" id="orderPanel" hidden>
+            <div class="order-head">
+              <span class="order-title">Merge order preview</span>
+              <span class="order-total" id="orderTotal"></span>
+            </div>
+            <div class="order-bar" id="orderBar"></div>
+            <div class="order-legend" id="orderLegend"></div>
+          </div>
+
+          <!-- Output options -->
+          <details class="options" id="optionsPanel">
+            <summary>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+              Output options
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="options-body">
+              <div class="opt-field">
+                <label for="optAuthor">Author</label>
+                <input type="text" id="optAuthor" placeholder="Optional" autocomplete="off">
+              </div>
+              <div class="opt-field">
+                <label for="optSubject">Subject</label>
+                <input type="text" id="optSubject" placeholder="Optional" autocomplete="off">
+              </div>
+              <div class="opt-field">
+                <label for="optKeywords">Keywords</label>
+                <input type="text" id="optKeywords" placeholder="comma, separated" autocomplete="off">
+              </div>
+              <label class="opt-check" title="Reduces output size by storing objects in compressed streams">
+                <input type="checkbox" id="optOptimize" checked>
+                Optimize file size
+              </label>
+            </div>
+          </details>
         </div>
 
         <!-- Merge bar -->
@@ -908,8 +1055,9 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
         </div>
 
         <!-- Progress -->
-        <div class="progress" id="progress" hidden>
-          <div class="progress-bar" id="progressBar"></div>
+        <div id="progressWrap" hidden>
+          <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+          <div class="progress-text" id="progressText">Preparing…</div>
         </div>
 
         <!-- Result -->
@@ -931,17 +1079,37 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
     </div>
   </section>
 
-  <!-- ================= FEATURES ================= -->
+  <!-- ============================================================
+       AD SLOT #1 — after tool
+       ─────────────────────────────────────────────────────────────
+       PASTE YOUR ADSTERRA BANNER SCRIPT INSIDE THIS CONTAINER.
+       Keep the outer <div class="ad-slot"> so layout stays intact.
+       Example:
+         <script type="text/javascript">
+           atOptions = { 'key' : 'YOUR_KEY', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+         </script>
+         <script type="text/javascript" src="//www.highperformanceformat.com/YOUR_KEY/invoke.js"></script>
+       ============================================================ -->
+  <div class="container ad-wrap">
+    <div class="ad-slot" id="ad-slot-top" data-ad-slot="top">
+      <span class="ad-label">Advertisement</span>
+      <span class="ad-placeholder">Ad slot — 728×90 / responsive leaderboard</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       FEATURES
+       ============================================================ -->
   <section class="features" id="features">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">Features</span>
         <h2>Everything you need to combine PDFs</h2>
         <p>Built for people who care about their documents — and their privacy.</p>
       </div>
 
       <div class="feature-grid">
-        <article class="feature-card">
+        <article class="feature-card reveal">
           <div class="feat-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
@@ -949,7 +1117,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
           <p>Your PDFs are read and merged locally in your browser. No server upload, no storage, no copy of your document anywhere else.</p>
         </article>
 
-        <article class="feature-card">
+        <article class="feature-card reveal">
           <div class="feat-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h13M3 12h9M3 18h5"/><path d="M18 8v11M18 19l3-3M18 19l-3-3"/></svg>
           </div>
@@ -957,15 +1125,15 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
           <p>Drag files into place or use the arrow buttons. Sort alphabetically, reverse the stack, and get the exact sequence you need.</p>
         </article>
 
-        <article class="feature-card">
+        <article class="feature-card reveal">
           <div class="feat-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg>
           </div>
           <h3>Page-level selection</h3>
-          <p>Only need pages 1–3 and 7? Type a range like <strong>1-3,7</strong> and pull just those pages into the final document.</p>
+          <p>Only need pages 1–3 and 7? Type a range like <code>1-3,7</code> and pull just those pages into the final document.</p>
         </article>
 
-        <article class="feature-card">
+        <article class="feature-card reveal">
           <div class="feat-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg>
           </div>
@@ -973,7 +1141,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
           <p>Scanned a document sideways? Rotate any individual file by 90°, 180° or 270° before merging — no extra tools required.</p>
         </article>
 
-        <article class="feature-card">
+        <article class="feature-card reveal">
           <div class="feat-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
           </div>
@@ -981,38 +1149,69 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
           <p>No daily caps, no queue, no waiting for an upload to finish. Merge as many documents as your browser can comfortably handle.</p>
         </article>
 
-        <article class="feature-card">
+        <article class="feature-card reveal">
           <div class="feat-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
           </div>
           <h3>Clean output</h3>
           <p>No watermarks, no branding stamps, no odd artefacts. You get a plain, well-formed PDF ready to share or archive.</p>
         </article>
+
+        <article class="feature-card reveal">
+          <div class="feat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M8 4v16M16 4v16"/></svg>
+          </div>
+          <h3>Visual previews</h3>
+          <p>See a thumbnail of the first page of each file and a colour-coded timeline of the final merge order before you commit.</p>
+        </article>
+
+        <article class="feature-card reveal">
+          <div class="feat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+          <h3>Metadata controls</h3>
+          <p>Set the author, subject and keywords of the merged PDF, and toggle object-stream optimisation to keep file sizes lean.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ================= HOW IT WORKS ================= -->
+  <!-- ============================================================
+       AD SLOT #2 — mid page (between features and how-it-works)
+       ─────────────────────────────────────────────────────────────
+       PASTE YOUR ADSTERRA NATIVE / BANNER SCRIPT HERE.
+       Use a responsive or 300×250 unit so it fits the column.
+       ============================================================ -->
+  <div class="container ad-wrap">
+    <div class="ad-slot" id="ad-slot-mid" data-ad-slot="mid">
+      <span class="ad-label">Advertisement</span>
+      <span class="ad-placeholder">Ad slot — 300×250 / responsive rectangle</span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       HOW IT WORKS
+       ============================================================ -->
   <section class="how" id="how">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">How it works</span>
         <h2>Three steps. That's it.</h2>
         <p>No tutorials, no settings maze — just a straightforward merge.</p>
       </div>
 
       <div class="steps">
-        <article class="step">
+        <article class="step reveal">
           <div class="step-num">01</div>
           <h3>Add your PDFs</h3>
           <p>Drag and drop two or more PDF files into the upload area, or click it to browse your device. Each file loads instantly.</p>
         </article>
-        <article class="step">
+        <article class="step reveal">
           <div class="step-num">02</div>
           <h3>Arrange the order</h3>
           <p>Drag the handle to reorder, or use the arrow buttons. Optionally trim each file with a page range and fix any rotation.</p>
         </article>
-        <article class="step">
+        <article class="step reveal">
           <div class="step-num">03</div>
           <h3>Merge &amp; download</h3>
           <p>Name your output file, hit <strong>Merge PDFs</strong>, and your combined document downloads straight away.</p>
@@ -1021,10 +1220,12 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
     </div>
   </section>
 
-  <!-- ================= PRIVACY ================= -->
+  <!-- ============================================================
+       PRIVACY
+       ============================================================ -->
   <section class="privacy" id="privacy">
     <div class="container">
-      <div class="privacy-card">
+      <div class="privacy-card reveal">
         <div>
           <span class="eyebrow">Privacy</span>
           <h2>Your documents stay yours</h2>
@@ -1062,10 +1263,95 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
     </div>
   </section>
 
-  <!-- ================= FAQ ================= -->
+  <!-- ============================================================
+       SITE OWNERS / ADSTERRA GUIDE
+       ============================================================ -->
+  <section class="owners" id="owners">
+    <div class="container">
+      <div class="owners-card reveal">
+        <div class="owners-head">
+          <span class="eyebrow">For Site Owners</span>
+          <h2>Monetizing this page with Adsterra</h2>
+          <p>
+            This page ships with three clean ad containers. Here's the exact checklist for wiring up
+            Adsterra banners without breaking the merge tool or mobile layout.
+          </p>
+        </div>
+
+        <div class="owners-body">
+
+          <div class="owner-step">
+            <div class="num">1</div>
+            <div>
+              <h3>Register the correct host in Adsterra</h3>
+              <p>When adding a site, Adsterra expects the root host only — no subfolder and no trailing slash.</p>
+              <ul>
+                <li>Enter: <code>easy-pdf-converter.github.io</code></li>
+                <li>Do <strong>not</strong> enter <code>/Merge-PDF/</code> or <code>https://</code></li>
+                <li>You can still place ad tags on this <code>/Merge-PDF/</code> page</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="owner-step">
+            <div class="num">2</div>
+            <div>
+              <h3>Paste your ad scripts into the marked slots</h3>
+              <p>Three containers are ready in the HTML source:</p>
+              <ul>
+                <li><code>#ad-slot-top</code> — leaderboard after the merge tool</li>
+                <li><code>#ad-slot-mid</code> — rectangle between sections</li>
+                <li><code>#ad-slot-footer</code> — footer banner (below)</li>
+              </ul>
+              <div class="code-block"><code>&lt;div class="ad-slot" id="ad-slot-top"&gt;
+  &lt;span class="ad-label"&gt;Advertisement&lt;/span&gt;
+  &lt;!-- Paste Adsterra banner script here --&gt;
+&lt;/div&gt;</code></div>
+            </div>
+          </div>
+
+          <div class="owner-step">
+            <div class="num">3</div>
+            <div>
+              <h3>Test on desktop &amp; mobile</h3>
+              <ul>
+                <li>Hard refresh: <span class="kbd">Ctrl</span> + <span class="kbd">F5</span> (Windows) or <span class="kbd">Cmd</span> + <span class="kbd">Shift</span> + <span class="kbd">R</span> (Mac)</li>
+                <li>Confirm upload buttons, merge button, and result panel are never covered</li>
+                <li>Check small screens — ads must not push the tool off-screen</li>
+                <li>Allow 10–30 minutes for new ad tags to propagate</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="owner-step">
+            <div class="num">4</div>
+            <div>
+              <h3>Keep placements clean &amp; policy-compliant</h3>
+              <ul>
+                <li>No pop-unders, auto-redirects, or ads that overlap interactive controls</li>
+                <li>Keep the <code>.ad-slot</code> wrapper so spacing stays consistent</li>
+                <li>Follow Adsterra's content and placement policies at all times</li>
+                <li>If an ad fails to render, the slot falls back to a neutral placeholder — no layout breakage</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="owner-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+            <div>Ad blockers and unapproved/unpropagated Adsterra tags are the most common reasons a slot appears empty. Always test in an incognito window with extensions disabled before troubleshooting the code.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ
+       ============================================================ -->
   <section class="faq" id="faq">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <span class="eyebrow">FAQ</span>
         <h2>Common questions</h2>
         <p>Quick answers about ordering, limits, privacy and troubleshooting.</p>
@@ -1073,12 +1359,12 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
 
       <div class="faq-list">
 
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary>How do I merge PDF files?
             <span class="faq-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </summary>
           <div class="faq-body">
-            <ol style="list-style:decimal;padding-left:1.2rem;display:flex;flex-direction:column;gap:.4rem;">
+            <ol>
               <li>Select or drag-and-drop two or more PDF files into the upload area.</li>
               <li>Arrange the files (and optionally their pages) in the exact order you need.</li>
               <li>Click <strong>Merge PDFs</strong> and download the resulting document.</li>
@@ -1086,7 +1372,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
           </div>
         </details>
 
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary>Are my files uploaded to a server?
             <span class="faq-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </summary>
@@ -1096,7 +1382,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
           </div>
         </details>
 
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary>Can I control the page order inside each PDF?
             <span class="faq-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </summary>
@@ -1107,7 +1393,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
           </div>
         </details>
 
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary>Why does my PDF fail to load?
             <span class="faq-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </summary>
@@ -1118,7 +1404,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
           </div>
         </details>
 
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary>Is there a file size or page limit?
             <span class="faq-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </summary>
@@ -1129,7 +1415,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
           </div>
         </details>
 
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary>My download didn't start — what should I do?
             <span class="faq-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </summary>
@@ -1140,7 +1426,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
           </div>
         </details>
 
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary>Can I rename the merged file?
             <span class="faq-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </summary>
@@ -1150,7 +1436,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
           </div>
         </details>
 
-        <details class="faq-item">
+        <details class="faq-item reveal">
           <summary>Does the merged PDF have a watermark?
             <span class="faq-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
           </summary>
@@ -1160,18 +1446,56 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
           </div>
         </details>
 
+        <details class="faq-item reveal">
+          <summary>Why don't I see the ads on this page?
+            <span class="faq-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </summary>
+          <div class="faq-body">
+            Ad slots can appear empty if an <strong>ad blocker</strong> is active, if the Adsterra tag hasn't propagated yet
+            (often 10–30 minutes after approval), or if the script was blocked by the browser. Try an incognito window
+            with extensions disabled, then hard refresh with <span class="kbd">Ctrl</span> + <span class="kbd">F5</span>.
+          </div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>Can I use Adsterra ads on this page?
+            <span class="faq-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </summary>
+          <div class="faq-body">
+            Yes — the page includes three clean ad containers specifically for that. Register the root host
+            <code>easy-pdf-converter.github.io</code> in Adsterra, then paste your banner scripts inside
+            <code>#ad-slot-top</code>, <code>#ad-slot-mid</code> and <code>#ad-slot-footer</code>. See the
+            <a href="#owners">Site Owners guide</a> above for the full checklist.
+          </div>
+        </details>
+
       </div>
     </div>
   </section>
 
+  <!-- ============================================================
+       AD SLOT #3 — footer banner
+       ─────────────────────────────────────────────────────────────
+       PASTE YOUR ADSTERRA FOOTER BANNER SCRIPT HERE.
+       A 728×90 or responsive leaderboard works well.
+       ============================================================ -->
+  <div class="container ad-wrap">
+    <div class="ad-slot" id="ad-slot-footer" data-ad-slot="footer">
+      <span class="ad-label">Advertisement</span>
+      <span class="ad-placeholder">Ad slot — 728×90 / responsive footer banner</span>
+    </div>
+  </div>
+
 </main>
 
-<!-- ================= FOOTER ================= -->
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="#top">
+        <a class="brand" href="#top" aria-label="Merge PDF home">
           <span class="brand-mark">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M7 3h7l5 5v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/>
@@ -1180,7 +1504,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
           </span>
           <span class="brand-text">Merge<span>PDF</span></span>
         </a>
-        <p>A free, private, browser-based way to combine PDF files. Part of the Easy PDF Converter suite.</p>
+        <p>A free, private, browser-based way to combine PDF files. Part of the Easy PDF Converter suite at easy-pdf-converter.github.io.</p>
       </div>
 
       <div class="footer-col">
@@ -1197,7 +1521,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
         <h4>Easy PDF Converter</h4>
         <ul>
           <li><a href="https://easy-pdf-converter.github.io/" target="_blank" rel="noopener">All tools</a></li>
-          <li><a href="#tool">Merge PDF</a></li>
+          <li><a href="https://easy-pdf-converter.github.io/Merge-PDF/" target="_blank" rel="noopener">Merge PDF</a></li>
           <li><a href="https://easy-pdf-converter.github.io/" target="_blank" rel="noopener">Split PDF</a></li>
           <li><a href="https://easy-pdf-converter.github.io/" target="_blank" rel="noopener">Compress PDF</a></li>
         </ul>
@@ -1207,6 +1531,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
         <h4>Info</h4>
         <ul>
           <li><a href="#privacy">Privacy</a></li>
+          <li><a href="#owners">Site owners</a></li>
           <li><a href="#faq">Troubleshooting</a></li>
           <li><a href="#tool">Get started</a></li>
         </ul>
@@ -1220,10 +1545,30 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
   </div>
 </footer>
 
+<!-- ============================================================
+     DRAG OVERLAY
+     ============================================================ -->
+<div class="drag-overlay" id="dragOverlay" aria-hidden="true">
+  <div class="drag-overlay-inner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <path d="M17 8l-5-5-5 5"/>
+      <path d="M12 3v13"/>
+    </svg>
+    <p>Drop your PDFs to add them</p>
+  </div>
+</div>
+
+<!-- ============================================================
+     TOASTS
+     ============================================================ -->
 <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="false"></div>
 
-<!-- ================= LIBRARIES ================= -->
+<!-- ============================================================
+     LIBRARIES
+     ============================================================ -->
 <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
 <script>
 (function () {
@@ -1240,12 +1585,12 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
     up: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>',
     down: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>',
     close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>',
-    pdf: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>',
     check: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>',
     warn: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>',
     info: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>',
     sun: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
-    moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'
+    moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
+    keyboard: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8"/></svg>'
   };
 
   const uid = () => Math.random().toString(36).slice(2, 10);
@@ -1261,6 +1606,8 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
     if (bytes < 1073741824) return (bytes / 1048576).toFixed(2) + ' MB';
     return (bytes / 1073741824).toFixed(2) + ' GB';
   }
+
+  const PALETTE = ['#7c6bff','#22d3ee','#f472b6','#34d399','#fbbf24','#f87171','#a78bfa','#38bdf8','#fb923c','#4ade80','#e879f9','#60a5fa'];
 
   /* =========================================================
      TOASTS
@@ -1293,7 +1640,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
     root.setAttribute('data-theme', theme);
     themeIcon.innerHTML = theme === 'dark' ? ICON.moon : ICON.sun;
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', theme === 'dark' ? '#080912' : '#f5f6fb');
+    if (meta) meta.setAttribute('content', theme === 'dark' ? '#070810' : '#f6f7fb');
     try { localStorage.setItem('mergepdf-theme', theme); } catch (e) {}
   }
 
@@ -1311,37 +1658,52 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
   });
 
   /* =========================================================
+     PDF.JS WORKER
+     ========================================================= */
+  if (window.pdfjsLib) {
+    try {
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc =
+        'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    } catch (e) { /* ignore */ }
+  }
+
+  /* =========================================================
      STATE
      ========================================================= */
   const state = {
-    files: [],        // { id, name, size, pageCount, doc, rotation, range }
+    files: [],
     busy: false,
-    lastBlobUrl: null
+    lastBlobUrl: null,
+    lastFilename: null
   };
 
-  const dropzone  = $('#dropzone');
-  const fileInput = $('#fileInput');
-  const fileArea  = $('#fileArea');
-  const fileList  = $('#fileList');
-  const fileCount = $('#fileCount');
-  const summary   = $('#summary');
-  const btnMerge  = $('#btnMerge');
-  const progress  = $('#progress');
+  const dropzone    = $('#dropzone');
+  const fileInput   = $('#fileInput');
+  const fileArea    = $('#fileArea');
+  const fileList    = $('#fileList');
+  const fileCount   = $('#fileCount');
+  const summary     = $('#summary');
+  const btnMerge    = $('#btnMerge');
+  const progressWrap= $('#progressWrap');
   const progressBar = $('#progressBar');
-  const resultBox = $('#result');
+  const progressText= $('#progressText');
+  const resultBox   = $('#result');
   const resultTitle = $('#resultTitle');
   const resultMeta  = $('#resultMeta');
   const btnDownload = $('#btnDownload');
-  const outNameInput = $('#outName');
+  const outNameInput= $('#outName');
+  const orderPanel  = $('#orderPanel');
+  const orderBar    = $('#orderBar');
+  const orderLegend = $('#orderLegend');
+  const orderTotal  = $('#orderTotal');
 
   /* =========================================================
      PAGE RANGE PARSING
      ========================================================= */
   function parseRanges(str, total) {
     const s = (str || '').trim();
-    if (!s) {
-      return Array.from({ length: total }, (_, i) => i);
-    }
+    if (!s) return Array.from({ length: total }, (_, i) => i);
+
     const out = [];
     const parts = s.split(',').map(p => p.trim()).filter(Boolean);
     if (!parts.length) return null;
@@ -1356,6 +1718,35 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
       for (let i = a; i <= b; i++) out.push(i - 1);
     }
     return out.length ? out : null;
+  }
+
+  /* =========================================================
+     THUMBNAIL GENERATION (pdf.js)
+     ========================================================= */
+  async function generateThumbnail(bytesCopy) {
+    if (!window.pdfjsLib) return null;
+    try {
+      const loadingTask = window.pdfjsLib.getDocument({ data: bytesCopy, disableAutoFetch: true });
+      const pdf = await loadingTask.promise;
+      const page = await pdf.getPage(1);
+      const baseViewport = page.getViewport({ scale: 1 });
+      const targetWidth = 120;
+      const scale = targetWidth / baseViewport.width;
+      const viewport = page.getViewport({ scale });
+
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.max(1, Math.floor(viewport.width));
+      canvas.height = Math.max(1, Math.floor(viewport.height));
+      const ctx = canvas.getContext('2d');
+      await page.render({ canvasContext: ctx, viewport }).promise;
+
+      const url = canvas.toDataURL('image/jpeg', 0.72);
+      try { pdf.destroy(); } catch (e) {}
+      return url;
+    } catch (err) {
+      console.warn('Thumbnail failed:', err);
+      return null;
+    }
   }
 
   /* =========================================================
@@ -1382,7 +1773,6 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
     let failed = 0;
 
     for (const file of incoming) {
-      // Skip obvious duplicates (same name + size)
       if (state.files.some(f => f.name === file.name && f.size === file.size)) {
         toast('"' + file.name + '" is already in the list.', 'info', 3200);
         continue;
@@ -1392,19 +1782,33 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
         const bytes = await file.arrayBuffer();
         const doc = await PDFDocument.load(bytes, { updateMetadata: false });
         const pageCount = doc.getPageCount();
-
         if (!pageCount) throw new Error('empty');
 
-        state.files.push({
+        const item = {
           id: uid(),
           name: file.name,
           size: file.size,
           pageCount,
           doc,
           rotation: 0,
-          range: ''
-        });
+          range: '',
+          thumbnail: null
+        };
+        state.files.push(item);
         added++;
+
+        // Async thumbnail — update the card when ready without full re-render
+        const thumbBytes = bytes.slice(0);
+        generateThumbnail(thumbBytes).then(url => {
+          item.thumbnail = url;
+          if (!url) return;
+          const thumbEl = document.querySelector(
+            '.file-card[data-id="' + item.id + '"] .file-thumb'
+          );
+          if (thumbEl) {
+            thumbEl.innerHTML = '<img src="' + url + '" alt="">';
+          }
+        });
       } catch (err) {
         failed++;
         const msg = String(err && err.message || '');
@@ -1421,8 +1825,6 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
       resultBox.hidden = true;
       if (added === 1) toast('File added.', 'success', 2200);
       else toast(added + ' files added.', 'success', 2200);
-    } else if (!failed) {
-      // nothing added, nothing failed (all duplicates) — messages already shown
     }
   }
 
@@ -1440,6 +1842,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
       });
     }
 
+    renderOrderPreview();
     updateSummary();
     updateToolbar();
   }
@@ -1450,13 +1853,22 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
     li.dataset.id = item.id;
     li.style.animationDelay = Math.min(index * 35, 260) + 'ms';
 
+    const thumbHtml = item.thumbnail
+      ? '<img src="' + item.thumbnail + '" alt="">'
+      : '<div class="thumb-skeleton"></div><span class="thumb-fallback">PDF</span>';
+
+    const rotBadge = item.rotation
+      ? '<span class="badge rot">' + item.rotation + '°</span>'
+      : '';
+
     li.innerHTML =
       '<button class="drag-handle" type="button" aria-label="Drag to reorder" title="Drag to reorder">' + ICON.grip + '</button>' +
-      '<div class="file-icon">' + ICON.pdf + '</div>' +
+      '<div class="file-thumb">' + thumbHtml + '</div>' +
       '<div class="file-main">' +
         '<div class="file-title">' +
           '<span class="file-name" title="' + esc(item.name) + '">' + esc(item.name) + '</span>' +
           '<span class="badge">' + item.pageCount + ' page' + (item.pageCount > 1 ? 's' : '') + '</span>' +
+          rotBadge +
         '</div>' +
         '<div class="file-meta">' + fmtSize(item.size) + '</div>' +
         '<div class="file-controls">' +
@@ -1465,10 +1877,10 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
           '</label>' +
           '<label class="ctl"><span>Rotate</span>' +
             '<select class="rot-select">' +
-              '<option value="0">0°</option>' +
-              '<option value="90">90°</option>' +
-              '<option value="180">180°</option>' +
-              '<option value="270">270°</option>' +
+              '<option value="0"' + (item.rotation === 0 ? ' selected' : '') + '>0°</option>' +
+              '<option value="90"' + (item.rotation === 90 ? ' selected' : '') + '>90°</option>' +
+              '<option value="180"' + (item.rotation === 180 ? ' selected' : '') + '>180°</option>' +
+              '<option value="270"' + (item.rotation === 270 ? ' selected' : '') + '>270°</option>' +
             '</select>' +
           '</label>' +
           '<span class="range-status"></span>' +
@@ -1480,18 +1892,13 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
         '<button class="mini-btn remove" data-act="remove" type="button" aria-label="Remove file" title="Remove">' + ICON.close + '</button>' +
       '</div>';
 
-    // Rotation select
-    const rotSelect = $('.rot-select', li);
-    rotSelect.value = String(item.rotation);
-
-    // Range input
     const rangeInput = $('.range-input', li);
     const status = $('.range-status', li);
 
     function refreshStatus() {
       const raw = rangeInput.value.trim();
       if (!raw) {
-        status.textContent = 'All ' + item.pageCount + ' page' + (item.pageCount > 1 ? 's' : '') + ' selected';
+        status.textContent = 'All ' + item.pageCount + ' page' + (item.pageCount > 1 ? 's' : '');
         status.className = 'range-status ok';
         rangeInput.classList.remove('invalid');
         return;
@@ -1502,7 +1909,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
         status.className = 'range-status ok';
         rangeInput.classList.remove('invalid');
       } else {
-        status.textContent = 'Invalid range (1–' + item.pageCount + ')';
+        status.textContent = 'Invalid (1–' + item.pageCount + ')';
         status.className = 'range-status bad';
         rangeInput.classList.add('invalid');
       }
@@ -1511,31 +1918,37 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
     rangeInput.addEventListener('input', () => {
       item.range = rangeInput.value;
       refreshStatus();
+      renderOrderPreview();
       updateSummary();
     });
     refreshStatus();
 
+    const rotSelect = $('.rot-select', li);
     rotSelect.addEventListener('change', () => {
       item.rotation = parseInt(rotSelect.value, 10) || 0;
+      // Update the rotation badge without full re-render
+      const titleEl = $('.file-title', li);
+      const oldBadge = $('.badge.rot', titleEl);
+      if (oldBadge) oldBadge.remove();
+      if (item.rotation) {
+        const b = document.createElement('span');
+        b.className = 'badge rot';
+        b.textContent = item.rotation + '°';
+        titleEl.appendChild(b);
+      }
     });
 
-    // Action buttons
     li.addEventListener('click', (e) => {
       const btn = e.target.closest('[data-act]');
       if (!btn) return;
       const act = btn.dataset.act;
-      if (act === 'remove') {
-        removeFile(item.id);
-      } else if (act === 'up') {
-        moveByIndex(item.id, -1);
-      } else if (act === 'down') {
-        moveByIndex(item.id, 1);
-      }
+      if (act === 'remove') removeFile(item.id);
+      else if (act === 'up') moveByIndex(item.id, -1);
+      else if (act === 'down') moveByIndex(item.id, 1);
     });
 
     // Drag & drop reordering
     const handle = $('.drag-handle', li);
-
     handle.addEventListener('mousedown', () => { li.draggable = true; });
     handle.addEventListener('touchstart', () => { li.draggable = true; }, { passive: true });
 
@@ -1568,9 +1981,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
       e.preventDefault();
       e.stopPropagation();
       li.classList.remove('drag-over');
-      if (dragId && dragId !== item.id) {
-        reorder(dragId, item.id);
-      }
+      if (dragId && dragId !== item.id) reorder(dragId, item.id);
     });
 
     return li;
@@ -1611,6 +2022,62 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
       : '';
   }
 
+  /* =========================================================
+     MERGE ORDER PREVIEW
+     ========================================================= */
+  function renderOrderPreview() {
+    const has = state.files.length > 0;
+    orderPanel.hidden = !has;
+    if (!has) return;
+
+    orderBar.innerHTML = '';
+    orderLegend.innerHTML = '';
+
+    let totalPages = 0;
+    const segments = [];
+
+    state.files.forEach((f, i) => {
+      const idx = parseRanges(f.range, f.pageCount);
+      const count = idx ? idx.length : 0;
+      totalPages += count;
+      segments.push({
+        name: f.name,
+        count,
+        color: PALETTE[i % PALETTE.length]
+      });
+    });
+
+    if (!totalPages) {
+      orderBar.innerHTML = '<div class="order-segment" style="flex:1;background:var(--surface-hover);"></div>';
+      orderTotal.textContent = '0 pages';
+      return;
+    }
+
+    segments.forEach(seg => {
+      const el = document.createElement('div');
+      el.className = 'order-segment';
+      el.style.flexGrow = String(seg.count);
+      el.style.background = seg.color;
+      el.title = seg.name + ' — ' + seg.count + ' page' + (seg.count > 1 ? 's' : '');
+      orderBar.appendChild(el);
+    });
+
+    segments.forEach(seg => {
+      const item = document.createElement('div');
+      item.className = 'order-legend-item';
+      item.innerHTML =
+        '<span class="order-dot" style="background:' + seg.color + '"></span>' +
+        '<span class="order-legend-name" title="' + esc(seg.name) + '">' + esc(seg.name) + '</span>' +
+        '<span style="color:var(--muted)">· ' + seg.count + '</span>';
+      orderLegend.appendChild(item);
+    });
+
+    orderTotal.textContent = totalPages + ' page' + (totalPages === 1 ? '' : 's');
+  }
+
+  /* =========================================================
+     SUMMARY
+     ========================================================= */
   function computeTotals() {
     let pages = 0;
     let bytes = 0;
@@ -1690,11 +2157,37 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
     }
   });
 
-  // Prevent the browser from navigating when files are dropped elsewhere
-  ['dragover', 'drop'].forEach(evt => {
-    window.addEventListener(evt, (e) => {
-      if (!dropzone.contains(e.target)) e.preventDefault();
-    });
+  // Global drag overlay + prevent navigation
+  const dragOverlay = $('#dragOverlay');
+  let dragCounter = 0;
+
+  window.addEventListener('dragenter', (e) => {
+    if (e.dataTransfer && Array.from(e.dataTransfer.types || []).includes('Files')) {
+      dragCounter++;
+      dragOverlay.classList.add('active');
+    }
+  });
+
+  window.addEventListener('dragleave', (e) => {
+    dragCounter = Math.max(0, dragCounter - 1);
+    if (dragCounter === 0) dragOverlay.classList.remove('active');
+  });
+
+  window.addEventListener('dragover', (e) => {
+    if (e.dataTransfer && Array.from(e.dataTransfer.types || []).includes('Files')) {
+      e.preventDefault();
+    }
+  });
+
+  window.addEventListener('drop', (e) => {
+    dragCounter = 0;
+    dragOverlay.classList.remove('active');
+    if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length) {
+      e.preventDefault();
+      addFiles(e.dataTransfer.files);
+    } else {
+      e.preventDefault();
+    }
   });
 
   /* =========================================================
@@ -1721,7 +2214,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
     state.files = [];
     render();
     resultBox.hidden = true;
-    progress.hidden = true;
+    progressWrap.hidden = true;
     revokeLastUrl();
     toast('All files cleared.', 'info', 2200);
   });
@@ -1739,9 +2232,10 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
       : '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M12 8v8M8 12h8M8 21h8"/></svg> Merge PDFs';
   }
 
-  function setProgress(ratio) {
-    progress.hidden = false;
+  function setProgress(ratio, text) {
+    progressWrap.hidden = false;
     progressBar.style.width = Math.max(2, Math.min(100, ratio * 100)) + '%';
+    if (text) progressText.textContent = text;
   }
 
   function revokeLastUrl() {
@@ -1766,7 +2260,6 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
       return;
     }
 
-    // Validate every range before starting
     for (const f of state.files) {
       if (parseRanges(f.range, f.pageCount) === null) {
         toast('Invalid page range for "' + f.name + '". Please correct it first.', 'error', 5600);
@@ -1776,7 +2269,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
 
     setBusy(true);
     resultBox.hidden = true;
-    setProgress(0.02);
+    setProgress(0.02, 'Preparing document…');
 
     try {
       const merged = await PDFDocument.create();
@@ -1795,28 +2288,40 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
         }
 
         done++;
-        setProgress(done / state.files.length * 0.94);
+        setProgress(
+          0.04 + (done / state.files.length) * 0.9,
+          'Merging ' + done + ' of ' + state.files.length + ' — ' + item.name
+        );
 
-        // Yield to the UI thread so the progress bar can paint
         await new Promise(r => setTimeout(r, 0));
       }
+
+      // Metadata
+      const author = ($('#optAuthor').value || '').trim();
+      const subject = ($('#optSubject').value || '').trim();
+      const keywords = ($('#optKeywords').value || '').trim();
+      const optimize = $('#optOptimize').checked;
 
       merged.setProducer('Merge PDF — Easy PDF Converter');
       merged.setCreator('Merge PDF (easy-pdf-converter.github.io)');
       merged.setCreationDate(new Date());
       merged.setModificationDate(new Date());
+      if (author) merged.setAuthor(author);
+      if (subject) merged.setSubject(subject);
+      if (keywords) merged.setKeywords(keywords.split(',').map(k => k.trim()).filter(Boolean));
 
-      setProgress(0.97);
+      setProgress(0.96, 'Writing PDF…');
 
-      const bytes = await merged.save({ useObjectStreams: true });
+      const bytes = await merged.save({ useObjectStreams: optimize });
       const blob = new Blob([bytes], { type: 'application/pdf' });
 
-      setProgress(1);
+      setProgress(1, 'Done');
 
       revokeLastUrl();
       state.lastBlobUrl = URL.createObjectURL(blob);
 
       const filename = sanitizeFilename(outNameInput.value);
+      state.lastFilename = filename;
       const pageTotal = merged.getPageCount();
 
       resultTitle.textContent = filename;
@@ -1832,12 +2337,15 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
         a.remove();
       };
 
-      // Auto-trigger the download
+      // Auto-trigger download
       btnDownload.click();
 
       toast('Merged ' + state.files.length + ' files into ' + pageTotal + ' pages.', 'success', 4200);
 
-      setTimeout(() => { progress.hidden = true; progressBar.style.width = '0%'; }, 900);
+      setTimeout(() => {
+        progressWrap.hidden = true;
+        progressBar.style.width = '0%';
+      }, 1100);
 
     } catch (err) {
       console.error(err);
@@ -1849,7 +2357,7 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
       } else {
         toast('Something went wrong while merging. Please try again with fewer files.', 'error', 7000);
       }
-      progress.hidden = true;
+      progressWrap.hidden = true;
       progressBar.style.width = '0%';
     } finally {
       setBusy(false);
@@ -1858,11 +2366,75 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
   });
 
   /* =========================================================
-     MISC
+     KEYBOARD SHORTCUTS
      ========================================================= */
-  $('#year').textContent = new Date().getFullYear();
+  const isMac = /Mac|iPhone|iPad/.test(navigator.platform || '');
+  const modKey = isMac ? '⌘' : 'Ctrl';
 
-  // Subtle pointer-follow glow on feature cards
+  $('#btnShortcuts').addEventListener('click', () => {
+    toast(
+      modKey + ' + O — add files  ·  ' +
+      modKey + ' + Enter — merge  ·  ' +
+      modKey + ' + S — download result  ·  ' +
+      modKey + ' + K — focus dropzone',
+      'info',
+      7000
+    );
+  });
+
+  document.addEventListener('keydown', (e) => {
+    const mod = isMac ? e.metaKey : e.ctrlKey;
+    if (!mod) {
+      if (e.key === '?' && !/input|textarea|select/i.test((e.target.tagName || ''))) {
+        e.preventDefault();
+        $('#btnShortcuts').click();
+      }
+      return;
+    }
+
+    if (e.key === 'o' || e.key === 'O') {
+      e.preventDefault();
+      fileInput.click();
+    } else if (e.key === 'Enter') {
+      if (!btnMerge.disabled) {
+        e.preventDefault();
+        btnMerge.click();
+      }
+    } else if (e.key === 's' || e.key === 'S') {
+      if (!resultBox.hidden && state.lastBlobUrl) {
+        e.preventDefault();
+        btnDownload.click();
+      }
+    } else if (e.key === 'k' || e.key === 'K') {
+      e.preventDefault();
+      dropzone.focus();
+      dropzone.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  });
+
+  /* =========================================================
+     SCROLL REVEAL
+     ========================================================= */
+  (function setupReveal() {
+    if (!('IntersectionObserver' in window)) {
+      $$('.reveal').forEach(el => el.classList.add('in'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    $$('.reveal').forEach(el => io.observe(el));
+  })();
+
+  /* =========================================================
+     FEATURE CARD GLOW
+     ========================================================= */
   $$('.feature-card').forEach(card => {
     card.addEventListener('pointermove', (e) => {
       const r = card.getBoundingClientRect();
@@ -1871,7 +2443,11 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
     });
   });
 
-  // Warn before leaving mid-merge
+  /* =========================================================
+     MISC
+     ========================================================= */
+  $('#year').textContent = new Date().getFullYear();
+
   window.addEventListener('beforeunload', (e) => {
     if (state.busy) {
       e.preventDefault();
@@ -1879,7 +2455,6 @@ html[data-theme="dark"] .input-wrap{background:rgba(255,255,255,.05);}
     }
   });
 
-  // Library availability notice
   window.addEventListener('load', () => {
     if (!window.PDFLib) {
       toast('The PDF engine could not load. Please check your internet connection and refresh.', 'error', 9000);
